@@ -1,8 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
+
 .main-container {
   width: 100%;
   height: 100%;
@@ -13,13 +16,29 @@
 .left-container {
   background-image: url(./assets/left-main.jpg);
   background-size: cover;
+  position: relative;
   width: 35%;
   height: 100vh;
 }
+.left-container::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-120%, -1070%);
+  background-image: url(assets/Logo.png);
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100px;
+  height: 30px;
+}
+
 .right-container {
   display: flex;
   flex-direction: column;
-  margin: 2.4rem 4rem 0 3rem;
+  width: 65%;
+  margin: 36px 64px 0 48px;
 }
 nav {
   display: flex;
@@ -29,7 +48,7 @@ nav {
   display: flex;
   justify-content: flex-end;
   list-style: none;
-  gap: 2.4rem;
+  gap: 36px;
 }
 .nav-items::before {
   content: "";
@@ -38,29 +57,36 @@ nav {
   margin-top: 10px;
   background-color: grey;
 }
-.top {
+.nav-item:hover {
+  cursor: pointer;
+  color: rgb(194, 56, 56);
+}
+.navbar-icon {
+  display: none;
+}
+.top-content {
   display: flex;
-  margin-top: 2rem;
-  margin-left: 1rem;
+  margin-top: 32px;
+  margin-left: 16px;
   align-items: flex-end;
 }
-.creat-text {
-  font-size: 10rem;
+.creat {
+  font-size: 160px;
   line-height: 0.9;
   font-family: "Merriweather", serif;
   font-weight: 600;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 1px;
 }
-.tivity-text {
-  margin-left: 10rem;
-  font-size: 10rem;
+.tivity {
+  margin-left: 160px;
+  font-size: 160px;
   line-height: 0.9;
   font-family: "Merriweather", serif;
   font-weight: 600;
   color: #333333;
 }
-.ingredient-text {
+.our-text {
   font-size: 1.5rem;
   font-family: "Merriweather", serif;
   color: #333333be;
@@ -70,27 +96,33 @@ nav {
 .social-media {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  margin-left: 10rem;
-  margin-bottom: 1rem;
+  gap: 48px;
+  margin-left: 160px;
+  margin-bottom: 16px;
 }
 .social {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
+  width: 30px;
+}
+.social:hover {
+  cursor: pointer;
 }
 .btn {
+  position: relative;
+  left: 41.5rem;
+  top: 16px;
   font-family: "Merriweather", serif;
-  font-weight: 700;
-  padding: 1rem 5.3rem;
+  font-weight: 600;
+  padding: 16px 5.3rem;
   background: #333;
   color: #fff;
   border: none;
   font-size: 1rem;
-  position: relative;
-  left: 41.5rem;
-  top: 1rem;
+}
+.btn:hover {
+  background-color: rgb(104, 103, 103);
 }
 
 .list {
@@ -112,15 +144,20 @@ nav {
 .list-item span::after {
   content: "";
   width: 1px;
-  height: 70px;
-  background: #5d5d5d;
+  height: 55px;
   position: absolute;
   left: 4px;
+  background: #5d5d5d;
+}
+
+.list-item:hover {
+  cursor: pointer;
+  color: #000;
 }
 .list-item.active {
   color: #000;
 }
-.bottom {
+.bottom-content {
   display: flex;
   margin-top: 2rem;
 }
@@ -130,23 +167,29 @@ nav {
 .image-container {
   margin-left: 12rem;
 }
-.img {
+.img-bottom {
   background-image: url(./assets/bg.jpg);
+  background-size: cover;
   height: 200px;
   width: 400px;
-  background-size: cover;
 }
 .arrow {
-  background-image: url(../assets/down-arrow.png);
   height: 200px;
   width: 200px;
+  background-image: url(../assets/down-arrow.png);
   background-size: contain;
   position: absolute;
   bottom: 0;
   right: 0;
 }
-@media screen and (max-width: 1051px) {
-  .top {
+@media screen and (max-width: 1055px) {
+  .left-container::after {
+    display: none;
+  }
+  .navbar-icon {
+    display: none;
+  }
+  .top-content {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -164,7 +207,7 @@ nav {
   .left-container {
     display: none;
   }
-  .ingredient-text {
+  .our-text {
     font-size: 1.5rem;
     font-family: "Merriweather", serif;
     color: #333333be;
@@ -184,21 +227,27 @@ nav {
   .social-media {
     flex-direction: row;
 
-    margin-left: 7rem;
-    margin-top: 1rem;
+    margin-left: 112px;
+    margin-top: 16px;
   }
 }
 @media screen and (max-width: 910px) {
+  .navbar-icon {
+    display: none;
+  }
   .arrow {
     display: none;
   }
 }
-@media screen and (max-width: 861px) {
+@media screen and (max-width: 860px) {
+  .navbar-icon {
+    display: none;
+  }
   .image-container {
     margin-left: 9rem;
     margin-bottom: 3rem;
   }
-  .bottom {
+  .bottom-content {
     flex-direction: column-reverse;
   }
   .list {
@@ -211,31 +260,37 @@ nav {
   .image-container {
     width: 100%;
   }
-  .img {
+  .img-bottom {
     width: 80%;
   }
 }
-@media screen and (max-width: 691px) {
-  .creat-text {
+@media screen and (max-width: 690px) {
+  .navbar-icon {
+    display: none;
+  }
+  .creat {
     margin-top: 1rem;
     font-size: 7rem;
   }
-  .tivity-text {
+  .tivity {
     margin-left: 10rem;
     font-size: 7rem;
   }
-  .ingredient-text {
+  .our-text {
     margin-left: 55%;
   }
 }
-@media screen and (max-width: 591px) {
+@media screen and (max-width: 590px) {
   nav {
     display: flex;
     justify-content: flex-start;
   }
   .nav-items {
-    gap: 3rem;
-    flex-wrap: wrap;
+    display: none;
+  }
+  .navbar-icon {
+    display: flex;
+    justify-content: end;
   }
   .creat-text {
     font-size: 5rem;
@@ -244,24 +299,24 @@ nav {
     margin-left: 10rem;
     font-size: 5rem;
   }
-  .ingredient-text {
+  .our-text {
     margin-left: 45%;
   }
-  .creat-text {
-    font-size: 3rem;
+  .creat {
+    font-size: 47px;
   }
-  .tivity-text {
-    margin-left: 6rem;
-    font-size: 3rem;
+  .tivity {
+    margin-left: 95px;
+    font-size: 57px;
   }
-  .ingredient-text {
+  .our-text {
     margin-top: 0;
     margin-left: 25%;
   }
   .social-media {
     margin-left: 2.5rem;
-    margin-top: 1rem;
-    gap: 2rem;
+    margin-top: 16px;
+    gap: 32px;
   }
   .social {
     width: 20px;
@@ -273,7 +328,7 @@ nav {
   .image-container {
     margin-left: 0.5rem;
   }
-  .bottom {
+  .bottom-content {
     flex-direction: column-reverse;
   }
   .list {
@@ -281,17 +336,5 @@ nav {
   }
   .img {
     width: 100%;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .nav-items {
-    gap: 1.2rem;
-  }
-}
-
-@media screen and (max-width: 377px) {
-  .nav-items {
-    flex-direction: column;
   }
 }
