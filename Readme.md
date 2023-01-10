@@ -29,4 +29,4 @@
 
 ![Project Screenshot](https://img.shields.io/badge/LiveClass-Project--14-green)
 
-![LCO](./14.png)
+![project-14](https://user-images.githubusercontent.com/112545072/211537162-1c1cae4f-642d-4e37-920e-5acbb22ac565.png)
